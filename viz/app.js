@@ -17,7 +17,8 @@ const constants = require('./consumer/constants')
 let dataGeneratorProcess = null
 
 const Postgres = require('pg-promise')({
-  capSQL: true
+  capSQL: true,
+  ssl: true
 })
 const db = Postgres(process.env.DATABASE_URL || 'postgresql://localhost:5432')
 const query = Postgres.helpers.concat([
